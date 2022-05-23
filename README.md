@@ -13,4 +13,7 @@
 ### TODO
 
 - 로그인 기능 추가
+  - JWT(JSON Web Token) 사용해보기
 - Typescript로 리팩토링
+- Json Server 환경으로 변경
+- .NET Core API와 연결

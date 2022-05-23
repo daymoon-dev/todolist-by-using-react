@@ -21,7 +21,7 @@ function App() {
     <>
       <GlobalStyle />
       <TodoTemplate>
-        <Title />
+        <Title title="TODOLIST" />
         <TodoForm todoItem={todoItem} setTodoItem={setTodoItem} />
         <TodoList todoItem={todoItem} setTodoItem={setTodoItem} />
       </TodoTemplate>

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+import { Button } from "./button/Button";
+
 const TodoFormBlock = styled.div``;
 const TodoFormTemplate = styled.form``;
 const TodoInput = styled.input``;
-const SubmitButton = styled.button``;
 
 export function TodoForm({ todoItem, setTodoItem }) {
   const [inputText, setInputText] = useState("");
@@ -30,7 +31,7 @@ export function TodoForm({ todoItem, setTodoItem }) {
     <TodoFormBlock>
       <TodoFormTemplate onSubmit={onSubmit}>
         <TodoInput autoFocus onChange={onChange} value={inputText} />
-        <SubmitButton type="submit">추가</SubmitButton>
+        <Button buttonText="추가" type="submit"></Button>
       </TodoFormTemplate>
     </TodoFormBlock>
   );

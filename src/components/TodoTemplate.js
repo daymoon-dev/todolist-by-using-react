@@ -8,7 +8,7 @@ const TodoTemplateBlock = styled.section`
   height: 512px;
   background: lightgray;
 
-  margin: 0 auto;
+  border-radius: 6%;
 `;
 
 export function TodoTemplate({ children }) {

@@ -8,8 +8,9 @@ const Todolist = styled.ul`
 `;
 
 const TodoItem = styled.li`
-  button {
+  Button {
     margin-left: 5px;
+    padding: 0.2rem;
   }
 
   &.Complete {
@@ -19,10 +20,22 @@ const TodoItem = styled.li`
 `;
 
 export function TodoList({ todoItem, setTodoItem }) {
+  const todoItems = (isDoneValue) => {
+    return todoItem
+      .filter((item) => item.isDone === isDoneValue)
+      .map((item) => (
+        <TodoItem key={item.id}>
+          {item.todo}
+          {/* <button onClick={() => editHandler(item)}>수정</button> */}
+          <Button buttonText="삭제" onClick={() => deleteTodo(item.id)} />
+          <Button buttonText="완료" onClick={() => isDoneHandler(item)} />
+        </TodoItem>
+      ));
+  };
+
   const deleteTodo = (id) => {
     setTodoItem(todoItem.filter((m) => m.id !== id));
   };
-  console.log(todoItem);
 
   const isDoneHandler = (item) => {
     setTodoItem([...todoItem, (item.isDone = !item.isDone)]);
@@ -31,41 +44,13 @@ export function TodoList({ todoItem, setTodoItem }) {
   return (
     <TodoListBlock>
       <Todolist>
-        <h2>진행중</h2>
-        {todoItem
-          .filter((item) => item.isDone === false)
-          .map((item) => (
-            <TodoItem key={item.id}>
-              {item.todo}
-              {/* <button onClick={() => editHandler(item)}>수정</button> */}
-              <Button
-                buttonText="삭제"
-                onClick={() => deleteTodo(item.id)}
-              ></Button>
-              <Button
-                buttonText="완료"
-                onClick={() => isDoneHandler(item)}
-              ></Button>
-            </TodoItem>
-          ))}
+        <h3>진행중</h3>
+        {todoItems(false)}
       </Todolist>
 
       <Todolist>
-        <h2>완료</h2>
-        {todoItem
-          .filter((doneItem) => doneItem.isDone === true)
-          .map((doneItem) => (
-            <TodoItem
-              className={`${todoItem.isDone ?? "Complete"}`}
-              key={doneItem.id}
-            >
-              {doneItem.todo}
-              <Button
-                buttonText="되돌리기"
-                onClick={() => isDoneHandler(doneItem)}
-              ></Button>
-            </TodoItem>
-          ))}
+        <h3>완료</h3>
+        {todoItems(true)}
       </Todolist>
     </TodoListBlock>
   );
