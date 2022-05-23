@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Button } from "./button/Button";
+
 const TodoListBlock = styled.div``;
 const Todolist = styled.ul`
   list-style: none;
@@ -36,8 +38,14 @@ export function TodoList({ todoItem, setTodoItem }) {
             <TodoItem key={item.id}>
               {item.todo}
               {/* <button onClick={() => editHandler(item)}>수정</button> */}
-              <button onClick={() => deleteTodo(item.id)}>삭제</button>
-              <button onClick={() => isDoneHandler(item)}>완료</button>
+              <Button
+                buttonText="삭제"
+                onClick={() => deleteTodo(item.id)}
+              ></Button>
+              <Button
+                buttonText="완료"
+                onClick={() => isDoneHandler(item)}
+              ></Button>
             </TodoItem>
           ))}
       </Todolist>
@@ -52,7 +60,10 @@ export function TodoList({ todoItem, setTodoItem }) {
               key={doneItem.id}
             >
               {doneItem.todo}
-              <button onClick={() => isDoneHandler(doneItem)}>되돌리기</button>
+              <Button
+                buttonText="되돌리기"
+                onClick={() => isDoneHandler(doneItem)}
+              ></Button>
             </TodoItem>
           ))}
       </Todolist>
