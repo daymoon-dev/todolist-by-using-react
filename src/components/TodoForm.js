@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import { Button } from "./button/Button";
+import { Button } from "./Button";
 
 const TodoFormBlock = styled.div``;
 const TodoFormTemplate = styled.form``;
