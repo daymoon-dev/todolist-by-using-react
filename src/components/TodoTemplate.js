@@ -6,7 +6,8 @@ const TodoTemplateBlock = styled.section`
   align-items: center;
   width: 360px;
   height: 512px;
-  background: lightgray;
+
+  background: #e9ecef;
 
   border-radius: 6%;
 `;

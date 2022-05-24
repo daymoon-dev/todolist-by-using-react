@@ -12,6 +12,7 @@
 
 ### TODO
 
+- CSS 예쁘게...
 - 로그인 기능 추가
   - JWT(JSON Web Token) 사용해보기
 - Typescript로 리팩토링

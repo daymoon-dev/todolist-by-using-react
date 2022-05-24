@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { TodoTemplate } from "./components/TodoTemplate";
-import { Titles, SubTitle } from "./components/Titles";
+import { Main } from "./components/Titles";
 import { TodoForm } from "./components/TodoForm";
 import { TodoList } from "./components/TodoList";
 import todoItems from "./db/todoItems.json";
@@ -21,7 +21,7 @@ function App() {
     <>
       <GlobalStyle />
       <TodoTemplate>
-        <Titles title="TODOLIST" />
+        <Main title="TODOLIST" />
         <TodoForm todoItem={todoItem} setTodoItem={setTodoItem} />
         <TodoList todoItem={todoItem} setTodoItem={setTodoItem} />
       </TodoTemplate>
