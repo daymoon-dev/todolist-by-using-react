@@ -13,9 +13,12 @@ const TodoFormTemplate = styled.form`
 
 const TodoInput = styled.input`
   border-radius: 5px;
+  padding: 0.3rem;
   font-size: 16px;
   border: 1px solid lightgray;
-  padding: 0.3rem;
+
+  background: black;
+  color: white;
 `;
 
 export function TodoForm({ todoItem, setTodoItem }) {

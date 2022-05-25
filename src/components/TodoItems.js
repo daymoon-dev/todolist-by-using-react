@@ -3,11 +3,16 @@ import { Button } from "./Button";
 
 const TodoItemBlock = styled.div`
   display: block;
+
+  input {
+    margin-right: 7px;
+  }
 `;
 
 const TodoItem = styled.li`
   display: inline;
   font-size: 18px;
+  vertical-align: auto;
 
   Button {
     margin-left: 5px;
@@ -26,7 +31,7 @@ export function TodoItems({ todoItem, setTodoItem, isDoneValue }) {
   };
 
   const isDoneHandler = (item) => {
-    setTodoItem([...todoItem, (item.isDone = !item.isDone)]);
+    setTodoItem([...todoItem], (item.isDone = !item.isDone));
   };
 
   return todoItem
@@ -34,15 +39,13 @@ export function TodoItems({ todoItem, setTodoItem, isDoneValue }) {
     .map((item) => {
       return !item.isDone ? (
         <TodoItemBlock key={item.id}>
+          <input type="checkbox" onClick={() => isDoneHandler(item)} />
           <TodoItem>{item.todo}</TodoItem>
-          <Button buttonText="삭제" onClick={() => deleteTodo(item.id)} />
-          <Button buttonText="완료" onClick={() => isDoneHandler(item)} />
+          <Button buttonText="&times;" onClick={() => deleteTodo(item.id)} />
         </TodoItemBlock>
       ) : (
         <TodoItemBlock key={item.id}>
-          <TodoItem className={item.isDone ? "Complete" : ""}>
-            {item.todo}
-          </TodoItem>
+          <TodoItem className={item.isDone && "Complete"}>{item.todo}</TodoItem>
           <Button buttonText="되돌리기" onClick={() => isDoneHandler(item)} />
         </TodoItemBlock>
       );
