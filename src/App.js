@@ -1,4 +1,3 @@
-import { createGlobalStyle } from "styled-components";
 import { TodoTemplate } from "./components/TodoTemplate";
 import { Main } from "./components/Titles";
 import { TodoForm } from "./components/TodoForm";
@@ -6,23 +5,16 @@ import { TodoList } from "./components/TodoList";
 import todoItems from "./db/todoItems.json";
 import { useState } from "react";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    display: flex;
-    justify-content: center;
-    margin: 50px auto;
-
-    background: black;
-    color: lightgrey;
-  }
-`;
-
 function App() {
   const [todoItem, setTodoItem] = useState(todoItems.todoItems);
 
   return (
     <>
-      <GlobalStyle />
+      <div>
+        <span>로그인</span>
+        <span>로그아웃</span>
+        <span>회원가입</span>
+      </div>
       <TodoTemplate>
         <Main title="TODOLIST" />
         <TodoForm todoItem={todoItem} setTodoItem={setTodoItem} />

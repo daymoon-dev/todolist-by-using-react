@@ -1,8 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import { Button } from "./Button";
-
 const TodoFormBlock = styled.div`
   padding: 10px;
 `;
@@ -12,13 +10,14 @@ const TodoFormTemplate = styled.form`
 `;
 
 const TodoInput = styled.input`
-  border-radius: 5px;
+  width: 14em;
   padding: 0.3rem;
-  font-size: 16px;
-  border: 1px solid lightgray;
-
   background: black;
   color: white;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid lightgray;
 `;
 
 export function TodoForm({ todoItem, setTodoItem }) {
@@ -50,8 +49,13 @@ export function TodoForm({ todoItem, setTodoItem }) {
   return (
     <TodoFormBlock>
       <TodoFormTemplate onSubmit={onSubmit}>
-        <TodoInput autoFocus onChange={onChange} value={inputText} />
-        <Button buttonText="추가" type="submit" />
+        <TodoInput
+          autoFocus
+          placeholder="할 일 입력하고 Enter"
+          onChange={onChange}
+          value={inputText}
+        />
+        {/* <Button buttonText="추가" type="submit" /> */}
       </TodoFormTemplate>
     </TodoFormBlock>
   );

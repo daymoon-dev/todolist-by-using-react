@@ -7,17 +7,18 @@ const TodoItemBlock = styled.div`
   input {
     margin-right: 7px;
   }
+
+  Button {
+    /* position: relative;
+    right: 0%; */
+  }
 `;
 
 const TodoItem = styled.li`
   display: inline;
   font-size: 18px;
   vertical-align: auto;
-
-  Button {
-    margin-left: 5px;
-    padding: 0.2rem;
-  }
+  line-height: 1.8em;
 
   &.Complete {
     text-decoration: line-through;
@@ -45,8 +46,9 @@ export function TodoItems({ todoItem, setTodoItem, isDoneValue }) {
         </TodoItemBlock>
       ) : (
         <TodoItemBlock key={item.id}>
+          <input type="checkbox" onClick={() => isDoneHandler(item)} />
           <TodoItem className={item.isDone && "Complete"}>{item.todo}</TodoItem>
-          <Button buttonText="되돌리기" onClick={() => isDoneHandler(item)} />
+          <Button buttonText="&times;" onClick={() => deleteTodo(item.id)} />
         </TodoItemBlock>
       );
     });
