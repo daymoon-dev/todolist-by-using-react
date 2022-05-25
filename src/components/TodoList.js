@@ -10,16 +10,24 @@ const Todolist = styled.ul`
 `;
 
 export function TodoList({ todoItem, setTodoItem }) {
+  const isViewSubTitle = (title, isDone) => {
+    return (
+      todoItem.filter((item) => item.isDone === isDone).length > 0 && (
+        <Sub title={title} />
+      )
+    );
+  };
+
   return (
     <TodoListBlock>
       <Todolist>
-        <Sub title="진행중"></Sub>
+        {isViewSubTitle("진행중", false)}
         <TodoItems
           todoItem={todoItem}
           setTodoItem={setTodoItem}
           isDoneValue={false}
         />
-        <Sub title="완료"></Sub>
+        {isViewSubTitle("완료", true)}
         <TodoItems
           todoItem={todoItem}
           setTodoItem={setTodoItem}
