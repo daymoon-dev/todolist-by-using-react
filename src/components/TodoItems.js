@@ -9,8 +9,6 @@ const TodoItemBlock = styled.div`
   }
 
   Button {
-    /* position: relative;
-    right: 0%; */
   }
 `;
 
@@ -20,7 +18,7 @@ const TodoItem = styled.li`
   vertical-align: auto;
   line-height: 1.8em;
 
-  &.Complete {
+  &.complete {
     text-decoration: line-through;
     opacity: 0.6;
   }
@@ -35,21 +33,28 @@ export function TodoItems({ todoItem, setTodoItem, isDoneValue }) {
     setTodoItem([...todoItem], (item.isDone = !item.isDone));
   };
 
+  const onChange = (e) => {};
+
+  const todoItemBlock = (item) => {
+    return (
+      <TodoItemBlock key={item.id}>
+        <input
+          type="checkbox"
+          checked={item.isDone}
+          onClick={() => isDoneHandler(item)}
+          onChange={onChange}
+        />
+        <TodoItem className={item.isDone ? "item complete" : "item"}>
+          {item.todo}
+        </TodoItem>
+        <Button buttonText="&times;" onClick={() => deleteTodo(item.id)} />
+      </TodoItemBlock>
+    );
+  };
+
   return todoItem
     .filter((item) => item.isDone === isDoneValue)
     .map((item) => {
-      return !item.isDone ? (
-        <TodoItemBlock key={item.id}>
-          <input type="checkbox" onClick={() => isDoneHandler(item)} />
-          <TodoItem>{item.todo}</TodoItem>
-          <Button buttonText="&times;" onClick={() => deleteTodo(item.id)} />
-        </TodoItemBlock>
-      ) : (
-        <TodoItemBlock key={item.id}>
-          <input type="checkbox" onClick={() => isDoneHandler(item)} />
-          <TodoItem className={item.isDone && "Complete"}>{item.todo}</TodoItem>
-          <Button buttonText="&times;" onClick={() => deleteTodo(item.id)} />
-        </TodoItemBlock>
-      );
+      return !item.isDone ? todoItemBlock(item) : todoItemBlock(item);
     });
 }

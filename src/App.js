@@ -10,11 +10,6 @@ function App() {
 
   return (
     <>
-      <div>
-        <span>로그인</span>
-        <span>로그아웃</span>
-        <span>회원가입</span>
-      </div>
       <TodoTemplate>
         <Main title="TODOLIST" />
         <TodoForm todoItem={todoItem} setTodoItem={setTodoItem} />
