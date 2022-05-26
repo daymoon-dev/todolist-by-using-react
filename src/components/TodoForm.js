@@ -18,6 +18,10 @@ const TodoInput = styled.input`
   text-align: center;
   border: none;
   border-bottom: 1px solid lightgray;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export function TodoForm({ todoItem, setTodoItem }) {
@@ -31,14 +35,20 @@ export function TodoForm({ todoItem, setTodoItem }) {
       return;
     }
 
-    setTodoItem([
-      ...todoItem,
-      {
-        id: Math.random(),
+    // TODO : 라우터 이용하여 리다이렉트
+    fetch("http://localhost:3001/todoItems", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
         todo: inputText,
         isDone: false,
-      },
-    ]);
+      }),
+
+      redirect: "follow",
+    });
     setInputText("");
   };
 

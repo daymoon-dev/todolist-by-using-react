@@ -6,19 +6,14 @@
       "isDone": false
     },
     {
-      "id": 2,
       "todo": "TODO 2",
-      "isDone": false
+      "isDone": false,
+      "id": 2
     },
     {
-      "id": 3,
-      "todo": "TODO 3",
-      "isDone": false
-    },
-    {
-      "id": 4,
       "todo": "TODO 4",
-      "isDone": true
+      "isDone": true,
+      "id": 4
     }
   ]
 }

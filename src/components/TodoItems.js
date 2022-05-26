@@ -26,14 +26,28 @@ const TodoItem = styled.li`
 
 export function TodoItems({ todoItem, setTodoItem, isDoneValue }) {
   const deleteTodo = (id) => {
-    setTodoItem(todoItem.filter((m) => m.id !== id));
+    fetch(`http://localhost:3001/todoItems/${id}`, {
+      method: "DELETE",
+    });
   };
 
   const isDoneHandler = (item) => {
-    setTodoItem([...todoItem], (item.isDone = !item.isDone));
+    fetch(`http://localhost:3001/todoItems/${item.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        todo: item.todo,
+        isDone: !item.isDone,
+      }),
+    });
   };
 
-  const onChange = (e) => {};
+  const onChange = (e) => {
+    console.log(e.target.value);
+  };
 
   const todoItemBlock = (item) => {
     return (
