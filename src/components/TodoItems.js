@@ -7,9 +7,6 @@ const TodoItemBlock = styled.div`
   input {
     margin-right: 7px;
   }
-
-  Button {
-  }
 `;
 
 const TodoItem = styled.li`
@@ -24,11 +21,11 @@ const TodoItem = styled.li`
   }
 `;
 
-export function TodoItems({ todoItem, setTodoItem, isDoneValue }) {
+export function TodoItems({ todoItems, setTodoItems, isDoneValue }) {
   const deleteTodo = (id) => {
     fetch(`http://localhost:3001/todoItems/${id}`, {
       method: "DELETE",
-    });
+    }).then(setTodoItems(todoItems.filter((item) => item.id !== id)));
   };
 
   const isDoneHandler = (item) => {
@@ -42,12 +39,12 @@ export function TodoItems({ todoItem, setTodoItem, isDoneValue }) {
         todo: item.todo,
         isDone: !item.isDone,
       }),
-    });
+    })
+      .then((response) => response.json())
+      .then(setTodoItems([...todoItems], (item.isDone = !item.isDone)));
   };
 
-  const onChange = (e) => {
-    console.log(e.target.value);
-  };
+  const onChange = (e) => {};
 
   const todoItemBlock = (item) => {
     return (
@@ -66,7 +63,7 @@ export function TodoItems({ todoItem, setTodoItem, isDoneValue }) {
     );
   };
 
-  return todoItem
+  return todoItems
     .filter((item) => item.isDone === isDoneValue)
     .map((item) => {
       return !item.isDone ? todoItemBlock(item) : todoItemBlock(item);

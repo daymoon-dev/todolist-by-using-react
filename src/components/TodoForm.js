@@ -24,7 +24,7 @@ const TodoInput = styled.input`
   }
 `;
 
-export function TodoForm({ todoItem, setTodoItem }) {
+export function TodoForm({ todoItems, setTodoItems }) {
   const [inputText, setInputText] = useState("");
 
   const onSubmit = (e) => {
@@ -35,7 +35,6 @@ export function TodoForm({ todoItem, setTodoItem }) {
       return;
     }
 
-    // TODO : 라우터 이용하여 리다이렉트
     fetch("http://localhost:3001/todoItems", {
       method: "POST",
       headers: {
@@ -46,9 +45,10 @@ export function TodoForm({ todoItem, setTodoItem }) {
         todo: inputText,
         isDone: false,
       }),
+    })
+      .then((res) => res.json())
+      .then((data) => setTodoItems([...todoItems, data]));
 
-      redirect: "follow",
-    });
     setInputText("");
   };
 

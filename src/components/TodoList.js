@@ -9,10 +9,10 @@ const Todolist = styled.ul`
   list-style: none;
 `;
 
-export function TodoList({ todoItem, setTodoItem }) {
+export function TodoList({ todoItems, setTodoItems }) {
   const isViewSubTitle = (title, isDone) => {
     return (
-      todoItem.filter((item) => item.isDone === isDone).length > 0 && (
+      todoItems.filter((item) => item.isDone === isDone).length > 0 && (
         <Sub title={title} />
       )
     );
@@ -23,14 +23,14 @@ export function TodoList({ todoItem, setTodoItem }) {
       <Todolist>
         {isViewSubTitle("진행중", false)}
         <TodoItems
-          todoItem={todoItem}
-          setTodoItem={setTodoItem}
+          todoItems={todoItems}
+          setTodoItems={setTodoItems}
           isDoneValue={false}
         />
         {isViewSubTitle("완료", true)}
         <TodoItems
-          todoItem={todoItem}
-          setTodoItem={setTodoItem}
+          todoItems={todoItems}
+          setTodoItems={setTodoItems}
           isDoneValue={true}
         />
       </Todolist>
