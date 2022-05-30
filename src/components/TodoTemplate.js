@@ -4,7 +4,6 @@ const TodoTemplateBlock = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px auto;
   width: 512px;
   height: auto;
   padding: 1em 0 4em 0;

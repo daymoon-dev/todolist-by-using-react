@@ -7,15 +7,17 @@
 ### 기술 스택
 
 - React
+  - React Router v6
 - Styled Components
-- Json Server
+- json-server
+- json-server-auth
 
 ### Run locally
 
 1. Install `npm install`
-2. Run `npm start`
-3. Run `npx json-server --watch ./src/db/todoItems.js --port 3001`
-4. Go to http//localhost:3000
+2. Run `npx json-server --watch ./src/db/todoItems.js --port 3001`
+3. Run `npm start`
+4. Go to [todolist](http//localhost:3000)
 
 ### TODO
 
@@ -33,3 +35,4 @@
 - [ ] Typescript로 리팩토링
 - [ ] .NET Core API 연결
 - [ ] Test를 TEST...
+- [ ] Apply Atomic Design
