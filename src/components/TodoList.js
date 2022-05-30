@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Sub } from "./Titles";
+import { SubTitle } from "./Titles";
 import { TodoItems } from "./TodoItems";
 
 const TodoListBlock = styled.div``;
@@ -13,7 +13,7 @@ export function TodoList({ todoItems, setTodoItems }) {
   const isViewSubTitle = (title, isDone) => {
     return (
       todoItems.filter((item) => item.isDone === isDone).length > 0 && (
-        <Sub title={title} />
+        <SubTitle title={title} />
       )
     );
   };

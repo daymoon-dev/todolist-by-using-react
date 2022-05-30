@@ -1,5 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
+import { useInput } from "../hooks/useInput";
+import { DefaultInput } from "./Inputs";
 
 const TodoFormBlock = styled.div`
   padding: 10px;
@@ -9,28 +10,13 @@ const TodoFormTemplate = styled.form`
   width: 100%;
 `;
 
-const TodoInput = styled.input`
-  width: 14em;
-  padding: 0.3rem;
-  background: black;
-  color: white;
-  font-size: 16px;
-  text-align: center;
-  border: none;
-  border-bottom: 1px solid lightgray;
-
-  &:focus {
-    outline: none;
-  }
-`;
-
 export function TodoForm({ todoItems, setTodoItems }) {
-  const [inputText, setInputText] = useState("");
+  const { value: todoInput, onChange, setValue: setTodoInput } = useInput();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!inputText || !inputText.trim()) {
+    if (!todoInput || !todoInput.trim()) {
       alert("할 일을 입력해주세요.");
       return;
     }
@@ -42,30 +28,24 @@ export function TodoForm({ todoItems, setTodoItems }) {
       },
 
       body: JSON.stringify({
-        todo: inputText,
+        todo: todoInput,
         isDone: false,
       }),
     })
       .then((res) => res.json())
       .then((data) => setTodoItems([...todoItems, data]));
 
-    setInputText("");
-  };
-
-  const onChange = (e) => {
-    setInputText(e.target.value);
+    setTodoInput("");
   };
 
   return (
     <TodoFormBlock>
       <TodoFormTemplate onSubmit={onSubmit}>
-        <TodoInput
-          autoFocus
-          placeholder="할 일 입력하고 Enter"
+        <DefaultInput
+          placeholder="할 일을 입력하세요."
+          value={todoInput}
           onChange={onChange}
-          value={inputText}
         />
-        {/* <Button buttonText="추가" type="submit" /> */}
       </TodoFormTemplate>
     </TodoFormBlock>
   );

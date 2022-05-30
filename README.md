@@ -10,6 +10,13 @@
 - Styled Components
 - Json Server
 
+### Run locally
+
+1. Install `npm install`
+2. Run `npm start`
+3. Run `npx json-server --watch ./src/db/todoItems.js --port 3001`
+4. Go to http//localhost:3000
+
 ### TODO
 
 - [ ] CSS 예쁘게...
@@ -17,9 +24,12 @@
   - [ ] Media Query
 - [ ] Json Server 환경으로 변경
   - [x] Custom Hooks
+    - input
+    - fetch
   - [ ] 로그인 기능 추가
   - [ ] JWT(JSON Web Token) 사용해보기
-- [ ] 라우터 적용
+- [x] 라우터 적용
+- [ ] Context API
 - [ ] Typescript로 리팩토링
 - [ ] .NET Core API 연결
 - [ ] Test를 TEST...
