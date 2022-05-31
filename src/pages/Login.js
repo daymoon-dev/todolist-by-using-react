@@ -3,12 +3,13 @@ import { TodoTemplate } from "../components/TodoTemplate";
 import { MainTitle } from "../components/Titles";
 import { DefaultInput } from "../components/Inputs";
 import { Button } from "../components/Button";
+import { Link } from "react-router-dom";
 
 const PasswordInput = styled(DefaultInput)`
   margin: 10px 0 20px 0;
 `;
 
-const BtnBlock = styled.div`
+const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
 `;
@@ -21,10 +22,12 @@ export function Login() {
       <MainTitle title="Login" />
       <DefaultInput autoFocus={true} placeholder="ID" />
       <PasswordInput type="password" placeholder="PASSWORD" />
-      <BtnBlock>
+      <ButtonContainer>
         <Button buttonText="로그인" onClick={excuteLogin} />
-        <Button buttonText="회원가입" />
-      </BtnBlock>
+        <Link to="/register">
+          <Button buttonText="회원가입" />
+        </Link>
+      </ButtonContainer>
     </TodoTemplate>
   );
 }

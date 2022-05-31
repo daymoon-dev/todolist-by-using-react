@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "path": "login",
+    "value": "로그인"
+  },
+  {
+    "id": 2,
+    "path": "register",
+    "value": "회원가입"
+  }
+]

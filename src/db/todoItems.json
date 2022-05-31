@@ -6,26 +6,6 @@
       "id": 10
     },
     {
-      "todo": "TODO 2",
-      "isDone": false,
-      "id": 11
-    },
-    {
-      "todo": "TODO 3",
-      "isDone": false,
-      "id": 12
-    },
-    {
-      "todo": "TODOLIST 1",
-      "isDone": true,
-      "id": 13
-    },
-    {
-      "todo": "TODOLIST 2",
-      "isDone": true,
-      "id": 14
-    },
-    {
       "todo": "TODOLIST 3",
       "isDone": true,
       "id": 15

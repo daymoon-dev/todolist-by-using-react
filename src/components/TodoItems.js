@@ -48,16 +48,14 @@ export function TodoItems({ todoItems, setTodoItems, isDoneValue }) {
 
   const todoItemBlock = (item) => {
     return (
-      <TodoItemBlock key={item.id}>
+      <TodoItemBlock className={`todoItem`} key={item.id}>
         <input
           type="checkbox"
           checked={item.isDone}
           onClick={() => isDoneHandler(item)}
           onChange={onChange}
         />
-        <TodoItem className={item.isDone ? "item complete" : "item"}>
-          {item.todo}
-        </TodoItem>
+        <TodoItem className={item.isDone && "complete"}>{item.todo}</TodoItem>
         <Button buttonText="&times;" onClick={() => deleteTodo(item.id)} />
       </TodoItemBlock>
     );

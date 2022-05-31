@@ -29,10 +29,11 @@
     - input
     - fetch
   - [ ] 로그인 기능 추가
-  - [ ] JWT(JSON Web Token) 사용해보기
+- [ ] JWT(JSON Web Token) 사용해보기
 - [x] 라우터 적용
 - [ ] Context API
-- [ ] Typescript로 리팩토링
+- [ ] 리팩토링
+  - [ ] Typescript
 - [ ] .NET Core API 연결
 - [ ] Test를 TEST...
 - [ ] Apply Atomic Design

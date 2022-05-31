@@ -1,47 +1,48 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import routes from "../db/routes.json";
 
 const Nav = styled.div`
   height: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
+  line-height: 50px;
 
   ul {
     list-style: none;
-    display: flex;
-    flex-direction: row;
+    padding: 0 15px;
+    margin: 0;
   }
 
   li {
-    margin: 0 15px 5px 0px;
+    float: right;
+    margin-left: 15px;
   }
 `;
 
-const routes = [
-  {
-    id: 1,
-    path: "login",
-    value: "로그인",
-  },
-  {
-    id: 2,
-    path: "register",
-    value: "회원가입",
-  },
-];
+const StyledLinked = styled(NavLink)`
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    color: lightgray;
+  }
+`;
+
+const Home = styled(StyledLinked)`
+  font-size: 1.3em;
+  font-weight: 600;
+`;
 
 export function Navigation() {
   return (
     <Nav>
       <ul>
+        <Home to="/">TODOLIST</Home>
         {routes.map((routes) => (
           <li key={routes.id}>
-            <NavLink to={routes.path}>{routes.value}</NavLink>
+            <StyledLinked to={routes.path}>{routes.value}</StyledLinked>
           </li>
         ))}
       </ul>
-      <Outlet />
     </Nav>
   );
 }
