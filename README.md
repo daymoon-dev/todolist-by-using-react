@@ -21,19 +21,15 @@
 
 ### TODO
 
-- [ ] CSS 예쁘게...
-  - [ ] Theme
-  - [ ] Media Query
+- [x] Custom Hooks
+  - input
+  - fetch
 - [ ] Json Server 환경으로 변경
-  - [x] Custom Hooks
-    - input
-    - fetch
-  - [ ] 로그인 기능 추가
-- [ ] JWT(JSON Web Token) 사용해보기
+  - [ ] json-server-auth
+    - [ ] 로그인
+    - [x] 회원가입
 - [x] 라우터 적용
 - [ ] Context API
-- [ ] 리팩토링
-  - [ ] Typescript
-- [ ] .NET Core API 연결
+- [ ] .NET Core
+  - [ ] JWT
 - [ ] Test를 TEST...
-- [ ] Apply Atomic Design

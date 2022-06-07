@@ -17,6 +17,7 @@ const Input = styled.input`
 
 export function DefaultInput({
   autoFocus,
+  name,
   type,
   className,
   value,
@@ -26,6 +27,7 @@ export function DefaultInput({
   return (
     <Input
       autoFocus={autoFocus}
+      name={name}
       type={type}
       className={className}
       placeholder={placeholder}
